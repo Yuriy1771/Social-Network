@@ -1,11 +1,19 @@
 import React from 'react';
+import NewsMore from './NewsMore';
 
 const News = (props) => {
-    return (
-        <div>
-            <p>News! why news is so boring?</p>
-        </div>
-    )
+  
+    let newArray = props.state.arrayNews.map(n => (
+        <NewsMore news={n.new} number={n.num}/>
+    ))
+
+return (
+    
+    <div>
+        News! why news is so boring?
+        {newArray}
+    </div>
+)
 }
 
 export default News;

@@ -3,17 +3,34 @@
   grid-template-columns: 2fr 10fr;
 }
 
+.dialogs img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.dialogs .name  {
+  color: #fff;
+  text-decoration: none;
+  /* border: 1px solid black; */
+}
+
+.dialog {
+    border: 1px solid rgba(226, 226, 226, 0.627);
+
+}
+
 .dialogsItems {
   padding: 10px;
   color: white;
 }
 
 .dialogsItems .active {
-    background-color: rgba(206, 220, 255, 0.7);
+    background-color: rgba(68, 92, 152, 0.7);
 }
 
 .messages {
-  background-color: honeydew;
+  background-color: rgb(211, 210, 223);
   padding: 10px;
 }
 

@@ -9,7 +9,7 @@ import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-const App = () => {
+const App = (props) => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -17,10 +17,10 @@ const App = () => {
         <Navbar />
         <div className="app-wrapper-content">
           <Routes>
-            <Route path="/profile" element={<Profile />}/>;
-            <Route path="/dialogs/*" element={<Dialogs />}/>;
-            <Route path="/news" element={<News />}/>;
-            <Route path='/music' element={<Music />}/>;
+            <Route path="/profile" element={<Profile state={props.state.profilePage}/>}/>;
+            <Route path="/dialogs/*" element={<Dialogs state={props.state.dialogsPage}/>}/>;
+            <Route path="/news" element={<News state={props.state.newsPage}/>}/>;
+            <Route path='/music' element={<Music state={props.state.musicPage}/>}/>;
             <Route path='/settings' element={<Settings />}/>;
           </Routes>
         </div>
