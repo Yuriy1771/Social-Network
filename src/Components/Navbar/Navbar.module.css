@@ -7,10 +7,17 @@
 .item {
     color: #fff;
     text-decoration: none;
+    font-size: 20px;
 
 }
 
+.item:hover {
+    color: rgb(255, 251, 0);
+}
+
 .active {
-    color: gold;
+    color: rgb(255, 251, 0);
     text-decoration: none;
+    text-shadow: 1px 1px 3px rgb(150, 127, 0);
+    font-size: 22px;
 }

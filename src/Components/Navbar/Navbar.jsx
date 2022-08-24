@@ -4,11 +4,13 @@ import classes from './Navbar.module.css';
 
 const ActiveLink = ({isActive}) => isActive ? classes.active : classes.item ;
 
-const Navbar = () => {
+const Navbar = (props) => {
+
+
   return (
     <nav className={classes.nav}>
       <div className={classes.item}>
-        <NavLink to="/profile" className = {ActiveLink}>Profile</NavLink>
+        <NavLink to="/profile"  className ={ActiveLink}>Profile</NavLink>
       </div>
       <div className={classes.item}>
         <NavLink to="/dialogs" className = {ActiveLink}>Message</NavLink>
