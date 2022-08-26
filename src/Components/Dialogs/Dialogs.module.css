@@ -15,15 +15,16 @@
 }
 
 .dialog {
-    border: 1px solid rgba(226, 226, 226, 0.627);
+    border: 1px solid rgba(149, 149, 149, 0.627);
 
 }
 
 .dialogsItems {
   padding: 10px;
-  color: white;
+  color: rgb(82, 82, 82);
   font-size: 20px;
   text-decoration: none;
+  text-shadow: .5px .5px 1px rgb(82, 82, 82);
 }
 
 .ActiveLink {
@@ -31,6 +32,7 @@
   color: yellow;
   font-size: 22px;
   text-decoration: none;
+  text-shadow: 1px 1px 1px rgb(51, 50, 0);
 }
 
 /* .dialogsItems .active {

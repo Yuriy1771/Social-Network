@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.newsBlock {
+    box-shadow: 0.5px 0.5px 10px rgba(0, 0, 0, 0.196);
+    width: 600px;
+    background-color: rgba(255, 255, 255, 0.637);
+    padding: 20px;
+}
+
+.description img {
+    padding: 0px 20px 0 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.description span {
+    color: black;
+}
+
+.textNews p {
+    padding: 0px 20px 0px 20px;
+}
+
+.pictureNews {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pictureNews img {
+    padding: 0px 10px 0 10px;
+    width: 400px;
+}
+
+.likeCount {
+    padding: 0px 0px 0px 20px;
+}
+
+.likeCount span{
+    border-bottom: 1px solid black;
+}

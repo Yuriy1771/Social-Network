@@ -1,19 +1,15 @@
-import React from 'react';
-import NewsMore from './NewsMore';
+import React from "react";
+import NewsElement from "./NewsElement";
 
 const News = (props) => {
-  
-    let newArray = props.state.arrayNews.map(n => (
-        <NewsMore news={n.new} number={n.num}/>
-    ))
 
-return (
-    
+  let newsItem = props.state.news.map(n => (<NewsElement avatar={n.avatar} name={n.name} text={n.text} picture={n.picture} likes={n.likes} />))
+
+  return (
     <div>
-        News! why news is so boring?
-        {newArray}
+      {newsItem}
     </div>
-)
-}
+  );
+};
 
 export default News;

@@ -1,9 +1,28 @@
 .descriptionBlock {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
     padding: 10px;
     width: 50px;
 }
 
-.descriptionBlock img {
+.lastName {
+    padding: 0px 0px 0px 10px;
+    width: 200px;
+    height: 25px;
+    font-size: 20px;
+    margin: 0;
+}
+
+.avatar img{
     width: 200px;
     height: 150px;
+}
+
+.status {
+    padding: 0px 0px 0px 10px;
+    font-style: italic;
+}
+
+.logo img {
+    width: 100%;
 }
