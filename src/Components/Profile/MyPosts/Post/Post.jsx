@@ -3,6 +3,7 @@ import classes from "./Post.module.css";
 
 const Post = (props) => {
   return (
+    <div className={classes.container}>
     <div className={classes.item}>
       <img src={props.avatar}></img>
       {props.message}
@@ -10,6 +11,7 @@ const Post = (props) => {
         <span>Like </span>
         {props.likesCount}
       </div>
+    </div>
     </div>
   );
 };

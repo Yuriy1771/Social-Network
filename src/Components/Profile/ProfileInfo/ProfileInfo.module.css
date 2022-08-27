@@ -16,6 +16,8 @@
 .avatar img{
     width: 200px;
     height: 150px;
+    border-radius: 5%;
+    box-shadow: 0 0 5px rgb(146, 146, 146);
 }
 
 .status {
