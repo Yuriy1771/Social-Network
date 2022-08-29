@@ -1,3 +1,7 @@
+.container {
+  padding: 10px 0 0 0 ;
+}
+
 .app-wrapper {
   display : grid;
   margin: 0 auto;
@@ -15,6 +19,12 @@
 .app-wrapper-content {
     grid-area: content;
     background-color: rgba(238, 238, 238, 0.637);
+    box-shadow: 0 0 5px rgb(146, 146, 146);
+}
+
+.container-app-wrapper-content {
+  padding: 10px 0 0 0 ;
+
 }
 
 .app-wrapper-content img {

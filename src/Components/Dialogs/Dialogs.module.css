@@ -16,23 +16,28 @@
 
 .dialog {
     border: 1px solid rgba(149, 149, 149, 0.627);
+    background-color: rgba(238, 238, 238, 0.637);
 
 }
 
+.shadow {
+  box-shadow: 0 0 5px rgb(146, 146, 146);
+}
+
 .dialogsItems {
-  padding: 10px;
-  color: rgb(82, 82, 82);
+  padding: 0 10px 0 0;
+  color: rgb(255, 255, 255);
   font-size: 20px;
   text-decoration: none;
-  text-shadow: .5px .5px 1px rgb(82, 82, 82);
+  text-shadow: .5px .5px 2px rgb(0, 0, 0);
+
 }
 
 .ActiveLink {
   padding: 10px;
-  color: yellow;
+  color: rgb(72, 72, 72);;
   font-size: 22px;
   text-decoration: none;
-  text-shadow: 1px 1px 1px rgb(51, 50, 0);
 }
 
 /* .dialogsItems .active {
@@ -40,7 +45,8 @@
 } */
 
 .messages {
-  background-color: rgb(211, 210, 223);
+  background-color: rgba(238, 238, 238, 0.637);
+  box-shadow: 0 0 5px rgb(146, 146, 146);
   padding: 10px;
 }
 

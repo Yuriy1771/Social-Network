@@ -15,7 +15,7 @@ const NewsElement = (props) => {
         <div className={classes.pictureNews}>
           <img
             src={props.picture}
-            alt=""
+            alt="imgPost"
           />
         </div>
         <div className={classes.likeCount}>

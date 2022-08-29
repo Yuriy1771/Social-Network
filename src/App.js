@@ -13,9 +13,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 const App = (props) => {
   return (
     <BrowserRouter>
+    <div className="container">
       <div className="app-wrapper">
         <Header />
         <Navbar />
+        <div className="container-app-wrapper-content">
         <div className="app-wrapper-content">
           <Routes>
             <Route
@@ -32,7 +34,7 @@ const App = (props) => {
             ;
             <Route
               path="/news"
-              element={<News state={props.state.newsPage} />}
+              element={<News state={props.state.newsPage} addNews={props.addNews} />}
             />
             ;
             <Route
@@ -43,7 +45,9 @@ const App = (props) => {
             <Route path="/settings" element={<Settings />} />;
           </Routes>
         </div>
+        </div>
       </div>
+    </div>
     </BrowserRouter>
   );
 };

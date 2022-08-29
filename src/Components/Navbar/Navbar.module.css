@@ -1,23 +1,30 @@
+.container {
+    padding: 10px 10px 0 0;
+}
+
 .nav {
-    grid-area: nav;
-    background-color: burlywood;
-    padding: 20px;
+  grid-area: nav;
+  background-color: rgba(238, 238, 238, 0.637);
+  padding: 20px;
+  box-shadow: 0 0 5px rgb(146, 146, 146);
 }
 
 .item {
-    color: #fff;
-    text-decoration: none;
-    font-size: 20px;
-    text-shadow: 1px 1px 3px rgb(0, 0, 0);
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  text-shadow: 0.5px 0.5px 2px rgb(0, 0, 0);
+  display: block;
 }
 
 .item:hover {
-    color: rgb(255, 251, 0);
+  color: rgb(255, 255, 255);
+  background-color: rgb(236, 235, 235);
 }
 
 .active {
-    color: rgb(255, 251, 0);
-    text-decoration: none;
-    text-shadow: 1px 1px 3px rgb(150, 127, 0);
-    font-size: 22px;
+  color: rgb(72, 72, 72);
+  text-decoration: none;
+  /* text-shadow: 1px 1px 3px rgb(3, 3, 3); */
+  font-size: 22px;
 }

@@ -8,6 +8,7 @@ const Navbar = (props) => {
 
 
   return (
+    <div className={classes.container}>
     <nav className={classes.nav}>
       <div className={classes.item}>
         <NavLink to="/profile"  className ={ActiveLink}>Profile</NavLink>
@@ -25,6 +26,8 @@ const Navbar = (props) => {
         <NavLink to="/settings" className = {ActiveLink}>Settings</NavLink>
       </div>
     </nav>
+    </div>
+
   );
 };
 
