@@ -13,41 +13,50 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 const App = (props) => {
   return (
     <BrowserRouter>
-    <div className="container">
-      <div className="app-wrapper">
-        <Header />
-        <Navbar />
-        <div className="container-app-wrapper-content">
-        <div className="app-wrapper-content">
-          <Routes>
-            <Route
-              path="/profile"
-              element={
-                <Profile state={props.state.profilePage} addPost={props.addPost} />
-              }
-            />
-            ;
-            <Route
-              path="/dialogs/*"
-              element={<Dialogs state={props.state.dialogsPage} />}
-            />
-            ;
-            <Route
-              path="/news"
-              element={<News state={props.state.newsPage} addNews={props.addNews} />}
-            />
-            ;
-            <Route
-              path="/music"
-              element={<Music state={props.state.musicPage} />}
-            />
-            ;
-            <Route path="/settings" element={<Settings />} />;
-          </Routes>
-        </div>
+      <div className="container">
+        <div className="app-wrapper">
+          <Header />
+          <Navbar />
+          <div className="container-app-wrapper-content">
+            <div className="app-wrapper-content">
+              <Routes>
+                <Route
+                  path="/profile"
+                  element={
+                    <Profile
+                      profilePage={props.state.profilePage}
+                      addPost={props.addPost}
+                      updateNewPostText={props.updateNewPostText}
+                    />
+                  }
+                />
+                ;
+                <Route
+                  path="/dialogs/*"
+                  element={<Dialogs state={props.state.dialogsPage} />}
+                />
+                ;
+                <Route
+                  path="/news"
+                  element={
+                    <News
+                      state={props.state.newsPage}
+                      addNews={props.addNews}
+                    />
+                  }
+                />
+                ;
+                <Route
+                  path="/music"
+                  element={<Music state={props.state.musicPage} />}
+                />
+                ;
+                <Route path="/settings" element={<Settings />} />;
+              </Routes>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
     </BrowserRouter>
   );
 };

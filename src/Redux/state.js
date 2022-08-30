@@ -18,6 +18,7 @@ let state = {
           "https://sun9-22.userapi.com/impg/wC75CeN7D_79iEeBUjFSsDsjJs02M5e6cqrbbA/p7IihIhOYlw.jpg?size=2560x1707&quality=96&sign=be071c82cadba6f14194bf91afcfd4e9&type=album",
       },
     ],
+    newPostText : '',
   },
   dialogsPage: {
     messages: [
@@ -141,17 +142,25 @@ let state = {
   },
 };
 
-export let addPost = (postMessage) => {
+window.state = state;
+
+export let addPost = () => {
   let newPost = {
     id: 5,
-    post: postMessage,
+    post: state.profilePage.newPostText,
     likesCount: 0,
     avatar:
       "https://sun9-22.userapi.com/impg/wC75CeN7D_79iEeBUjFSsDsjJs02M5e6cqrbbA/p7IihIhOYlw.jpg?size=2560x1707&quality=96&sign=be071c82cadba6f14194bf91afcfd4e9&type=album",
   };
   state.profilePage.posts.push(newPost);
+  state.profilePage.newPostText = '';
   rerenderEntireTree(state);
 };
+
+export let updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText;
+  rerenderEntireTree(state);
+}
 
 export let addNews = (postNews, imgNews) => {
   debugger
