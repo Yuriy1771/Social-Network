@@ -40,8 +40,10 @@ const App = (props) => {
                   path="/news"
                   element={
                     <News
-                      state={props.state.newsPage}
+                      newsPage={props.state.newsPage}
                       addNews={props.addNews}
+                      updateNewsPostText={props.updateNewsPostText}
+                      newPostText={props.state.newsPage.newPostText}
                     />
                   }
                 />

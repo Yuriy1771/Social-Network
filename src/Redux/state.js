@@ -139,6 +139,7 @@ let state = {
         likes: 24,
       },
     ],
+    newPostText: ""
   },
 };
 
@@ -162,17 +163,22 @@ export let updateNewPostText = (newText) => {
   rerenderEntireTree(state);
 }
 
-export let addNews = (postNews, imgNews) => {
-  debugger
+export let updateNewsPostText = (newText) => {
+  state.newsPage.newPostText = newText;
+  rerenderEntireTree(state);
+}
+
+export let addNews = (imgNews) => {
   let newsPost = {
     avatar:
       "https://sun9-22.userapi.com/impg/wC75CeN7D_79iEeBUjFSsDsjJs02M5e6cqrbbA/p7IihIhOYlw.jpg?size=2560x1707&quality=96&sign=be071c82cadba6f14194bf91afcfd4e9&type=album",
     name: "Yuriy",
-    text: postNews,
+    text: state.newsPage.newPostText,
     picture: imgNews,
     likes: 0,
   };
   state.newsPage.news.push(newsPost);
+  state.newsPage.newPostText = '';
   rerenderEntireTree(state);
 };
 
