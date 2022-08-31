@@ -26,6 +26,7 @@ let state = {
       { id: 2, message: "How is your dream ?" },
       { id: 3, message: "Nice bro! Thanks ?" },
     ],
+    newMessageText: '',
     dialogs: [
       {
         id: 1,
@@ -181,5 +182,20 @@ export let addNews = (imgNews) => {
   state.newsPage.newPostText = '';
   rerenderEntireTree(state);
 };
+
+export let addMessage = () => {
+  let newMessage = {
+     id: 4, 
+    message: state.dialogsPage.newMessageText,
+  }
+  state.dialogsPage.messages.push(newMessage);
+  state.dialogsPage.newMessageText = '';
+  rerenderEntireTree(state);
+}
+
+export let updateNewMessageText = (messageText) => {
+  state.dialogsPage.newMessageText = messageText;
+  rerenderEntireTree(state);
+}
 
 export default state;
