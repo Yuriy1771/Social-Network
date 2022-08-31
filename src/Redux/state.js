@@ -1,5 +1,6 @@
-import { rerenderEntireTree } from "../render";
-
+let rerenderEntireTree = () => {
+}
+ 
 let state = {
   profilePage: {
     posts: [
@@ -146,7 +147,7 @@ let state = {
 
 window.state = state;
 
-export let addPost = () => {
+export const addPost = () => {
   let newPost = {
     id: 5,
     post: state.profilePage.newPostText,
@@ -159,17 +160,17 @@ export let addPost = () => {
   rerenderEntireTree(state);
 };
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
   state.profilePage.newPostText = newText;
   rerenderEntireTree(state);
 }
 
-export let updateNewsPostText = (newText) => {
+export const updateNewsPostText = (newText) => {
   state.newsPage.newPostText = newText;
   rerenderEntireTree(state);
 }
 
-export let addNews = (imgNews) => {
+export const addNews = (imgNews) => {
   let newsPost = {
     avatar:
       "https://sun9-22.userapi.com/impg/wC75CeN7D_79iEeBUjFSsDsjJs02M5e6cqrbbA/p7IihIhOYlw.jpg?size=2560x1707&quality=96&sign=be071c82cadba6f14194bf91afcfd4e9&type=album",
@@ -183,7 +184,7 @@ export let addNews = (imgNews) => {
   rerenderEntireTree(state);
 };
 
-export let addMessage = () => {
+export const addMessage = () => {
   let newMessage = {
      id: 4, 
     message: state.dialogsPage.newMessageText,
@@ -193,9 +194,13 @@ export let addMessage = () => {
   rerenderEntireTree(state);
 }
 
-export let updateNewMessageText = (messageText) => {
+export const updateNewMessageText = (messageText) => {
   state.dialogsPage.newMessageText = messageText;
   rerenderEntireTree(state);
+}
+
+export const subscribe = (observer) => {
+  rerenderEntireTree = observer;
 }
 
 export default state;
