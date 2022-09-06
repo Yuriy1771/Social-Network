@@ -20,13 +20,13 @@ const News = (props) => {
   let addNews = () => {
     // let text = textNews.current.value;
     // let img = imgNews.current.value;
-    props.addNews();
+    props.dispatch({type: 'ADD-NEWS-POST'});
   }
 
 let onPostChange = () => {
   let text = textNews.current.value;
   let img = imgNews.current.value;
-  props.updateNewsPostText(text,img);
+  props.dispatch({type: 'UPDATE-NEWS-POST-TEXT', newText:text, imgNews:img});
 }
 
   return (
