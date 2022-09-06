@@ -1,6 +1,8 @@
 import React from "react";
 import NewsElement from "./NewsElement";
 import classes from "./News.module.css";
+import {  NewsActionCreator, updateNewsPostTextActionCreator } from "../../Redux/state";
+
 
 const News = (props) => {
   let newsItem = props.newsPage.news.map((n) => (
@@ -20,13 +22,13 @@ const News = (props) => {
   let addNews = () => {
     // let text = textNews.current.value;
     // let img = imgNews.current.value;
-    props.dispatch({type: 'ADD-NEWS-POST'});
+    props.dispatch(NewsActionCreator());
   }
 
 let onPostChange = () => {
   let text = textNews.current.value;
   let img = imgNews.current.value;
-  props.dispatch({type: 'UPDATE-NEWS-POST-TEXT', newText:text, imgNews:img});
+  props.dispatch(updateNewsPostTextActionCreator(text,img));
 }
 
   return (
