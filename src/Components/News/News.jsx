@@ -20,8 +20,6 @@ const News = (props) => {
   let imgNews = React.createRef();
 
   let addNews = () => {
-    // let text = textNews.current.value;
-    // let img = imgNews.current.value;
     props.dispatch(NewsActionCreator());
   }
 

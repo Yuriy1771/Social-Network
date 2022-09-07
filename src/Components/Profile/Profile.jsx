@@ -7,6 +7,7 @@ const Profile = (props) => {
     <div>
       <ProfileInfo />
       <MyPosts
+        store = {props.store}
         posts={props.profilePage.posts}
         dispatch={props.dispatch}
       />

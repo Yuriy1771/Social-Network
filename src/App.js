@@ -34,8 +34,8 @@ const App = (props) => {
                   path="/dialogs/*"
                   element={
                     <Dialogs
-                      state={props.state.dialogsPage}
                       dispatch={props.dispatch}
+                      store={props.store}
                     />
                   }
                 />

@@ -6,26 +6,31 @@ import { addMessageActionCreator, updateNewMessageTextActionCreator } from "../.
 
 
 const Dialogs = (props) => {
-  let dialogsElements = props.state.dialogs.map((d) => (
+  
+  let state = props.store.getState().dialogsPage;
+  
+  let newMessageText = state.newMessageText;
+  
+  let dialogsElements = state.dialogs.map((d) => (
     <DialogItem name={d.name} id={d.id} avatar={d.avatar} />
-  ));
-
-  let messagesElements = props.state.messages.map((m) => (
-    <Message message={m.message} />
-  ));
-
-  let newMessageElement = React.createRef();
-
-  let addMessage = () => {
-    props.dispatch(addMessageActionCreator());
-  };
-
-  let onMessageChange = () => {
-    let message = newMessageElement.current.value;
-    props.dispatch(updateNewMessageTextActionCreator(message));
-  }
-
-
+    ));
+    
+    let messagesElements = state.messages.map((m) => (
+      <Message message={m.message} />
+      ));
+      
+      let newMessageElement = React.createRef();
+      
+      let addMessage = () => {
+        props.store.dispatch(addMessageActionCreator());
+      };
+      
+      let onMessageChange = (e) => {
+        let message = e.target.value;
+        props.store.dispatch(updateNewMessageTextActionCreator(message));
+      }
+      
+      
   return (
     <div className={classes.dialogs}>
       <div className={classes.shadow}>
@@ -34,7 +39,7 @@ const Dialogs = (props) => {
       <div className={classes.messages}>
         {messagesElements}
         <div>
-          <textarea ref={newMessageElement} onChange={ onMessageChange } value={ props.newMessageText }></textarea>
+          <textarea ref={newMessageElement} onChange={ onMessageChange } value={ newMessageText }></textarea>
         </div>
         <div>
           <button onClick={addMessage}>Send</button>
