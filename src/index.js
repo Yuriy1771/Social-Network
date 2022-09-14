@@ -1,18 +1,9 @@
 import React from "react";
 import reportWebVitals from "./reportWebVitals";
-import store from "./Redux/state";
+import store from "./Redux/redux-store";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-// import { subscribe } from "./Redux/state";
-// import {
-//   addPost,
-//   addNews,
-//   updateNewPostText,
-//   updateNewsPostText,
-//   addMessage,
-//   updateNewMessageText,
-// } from "./Redux/state";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -36,6 +27,9 @@ let rerenderEntireTree = (state) => {
 
 rerenderEntireTree(store.getState());
 
-store.subscribe(rerenderEntireTree);
+store.subscribe(() => {
+    let state = store.getState();
+    rerenderEntireTree(state)
+});
 
 reportWebVitals();

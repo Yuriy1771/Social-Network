@@ -2,6 +2,7 @@ import dialogsReducer from "./dialogs-reducer";
 import newsReducer from "./news-reducer";
 import profileReducer from "./profile-reducer";
 import sidebarReducer from "./sidebar-reducer";
+import musicReducer from "./music-reducer";
 
 let store = {
   _state: {
@@ -160,7 +161,7 @@ let store = {
     this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
     this._state.newsPage = newsReducer(this._state.newsPage, action);
     this._state.sidebarFriends = sidebarReducer(this._state.sidebarFriends, action);
-    
+
     this._callSubscriber(this._state);
   },
 };

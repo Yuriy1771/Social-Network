@@ -55,7 +55,8 @@ const App = (props) => {
                 ;
                 <Route
                   path="/music"
-                  element={<Music state={props.state.musicPage} />}
+                    element={<Music state={props.state.musicPage}
+                  />}
                 />
                 ;
                 <Route path="/settings" element={<Settings />} />;

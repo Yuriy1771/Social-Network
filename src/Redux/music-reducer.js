@@ -1,7 +1,18 @@
-const musicReducer = (state, action) => {
+import newsReducer from "./news-reducer";
 
-
-    return (
-        state
-    )
+let initialState = {
+    playlist: [
+        { avtor: "Luba", trek: "Hours" },
+        { avtor: "Bob Dylan", trek: "Knock knock" },
+        { avtor: "Red cheil the papers", trek: "Californication" },
+    ],
 }
+
+const musicReducer = (state = initialState, action) => {
+
+
+    return state
+
+}
+
+export default musicReducer;
