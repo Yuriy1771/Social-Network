@@ -19,14 +19,14 @@ const News = (props) => {
   let textNews = React.createRef();
   let imgNews = React.createRef();
 
-  let addNews = () => {
-    props.dispatch(NewsActionCreator());
+  let onAddNews = () => {
+    props.addNews();
   }
 
 let onPostChange = () => {
   let text = textNews.current.value;
   let img = imgNews.current.value;
-  props.dispatch(updateNewsPostTextActionCreator(text,img));
+  props.updateNewsPostText(text,img)
 }
 
   return (
@@ -36,7 +36,7 @@ let onPostChange = () => {
           <textarea onChange={onPostChange} value={props.newPostText} ref={ textNews }></textarea>
         </div>
         <div className={classes.btnAddNews}>
-          <button onClick={addNews} >Add News</button>
+          <button onClick={ onAddNews } >Add News</button>
         </div>
         <div className={classes.addImg}>
           <input type="file" ref={ imgNews } />

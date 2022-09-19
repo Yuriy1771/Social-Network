@@ -9,6 +9,8 @@ import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
 import SidebarFriends from "./Components/Navbar/SidebarFriends/SidebarFriends";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DialogsContainer from "./Components/Dialogs/DialogsContainer";
+import NewsContainer from "./Components/News/NewsContainer";
 
 const App = (props) => {
   return (
@@ -24,8 +26,7 @@ const App = (props) => {
                   path="/profile"
                   element={
                     <Profile
-                      profilePage={props.state.profilePage}
-                      dispatch={props.dispatch}
+                     store={props.store}
                     />
                   }
                 />
@@ -33,7 +34,7 @@ const App = (props) => {
                 <Route
                   path="/dialogs/*"
                   element={
-                    <Dialogs
+                    <DialogsContainer
                       dispatch={props.dispatch}
                       store={props.store}
                     />
@@ -43,12 +44,8 @@ const App = (props) => {
                 <Route
                   path="/news"
                   element={
-                    <News
-                      newsPage={props.state.newsPage}
-                      // addNews={props.addNews}
-                      // updateNewsPostText={props.updateNewsPostText}
-                      // newPostText={props.state.newsPage.newPostText}
-                      dispatch={props.dispatch}
+                    <NewsContainer
+                      store={props.store}
                     />
                   }
                 />
