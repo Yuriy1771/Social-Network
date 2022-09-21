@@ -3,13 +3,12 @@ import Musics from './Musics';
 
 const Music = (props) => {
 
-    // let playlist = [
-    //     {avtor : 'Nike Minah', trek : 'nice as!'},
-    //     {avtor : 'Bob Dylan', trek : 'Knock knock'},
-    //     {avtor : 'Red cheil the papers', trek : 'Californication'}
-    // ]
-    
-        let newPlaylist = props.state.playlist.map(p => (<Musics avtor={p.avtor} trek={p.trek}/>))
+        let newPlaylist = props.musicPage.playlist.map(p => (
+            <Musics
+            avtor={p.avtor}
+            trek={p.trek}
+            />
+        ))
     
     return (
         <div>

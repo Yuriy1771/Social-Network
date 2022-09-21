@@ -161,6 +161,7 @@ let store = {
     this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
     this._state.newsPage = newsReducer(this._state.newsPage, action);
     this._state.sidebarFriends = sidebarReducer(this._state.sidebarFriends, action);
+    this._state.musicPage = musicReducer(this._state.musicPage, action);
 
     this._callSubscriber(this._state);
   },

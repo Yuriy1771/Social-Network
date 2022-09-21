@@ -1,4 +1,3 @@
-import newsReducer from "./news-reducer";
 
 let initialState = {
     playlist: [
