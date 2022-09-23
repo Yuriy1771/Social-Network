@@ -55,7 +55,7 @@ const App = (props) => {
                                     path="/music"
                                     element={
                                         <Music
-                                            store={props.store}
+
                                         />
                                     }
                                 />

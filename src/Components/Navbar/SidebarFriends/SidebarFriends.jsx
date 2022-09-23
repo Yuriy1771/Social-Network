@@ -1,6 +1,6 @@
 // import React from "react";
 // import classes from "./../SidebarFriends/SidebarFriends.module.css";
-
+//
 // const SidebarFriends = (props) => {
 // //   let sidebarFriend = [
 // //     {
@@ -19,9 +19,9 @@
 // //         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRA3PuNUIJHAviGQ0BQ5Q2xNscd-EjRC8IPQ&usqp=CAU",
 // //     },
 // //   ];
-
+//
 // //   let arraySidebar = props.sidebarFriend.map(f =><SidebarFriends name={f.name} avatar={f.avatar}/>)
-
+//
 //   return (
 //     <div className={classes.sidebarFriends}>
 //         <div className={classes.friend}>{props.name} <img src={props.avatar} alt="avatar" /></div>
@@ -32,5 +32,5 @@
 //     </div>
 //   );
 // };
-
+//
 // export default SidebarFriends;

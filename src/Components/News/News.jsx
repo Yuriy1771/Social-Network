@@ -12,6 +12,7 @@ const News = (props) => {
       text={n.text}
       picture={n.picture}
       likes={n.likes}
+      key={n.id}
     />
   ));
 
@@ -26,7 +27,7 @@ const News = (props) => {
 let onPostChange = () => {
   let text = textNews.current.value;
   let img = imgNews.current.value;
-  props.updateNewsPostText(text,img)
+  props.onPostChange(text,img)
 }
 
   return (
