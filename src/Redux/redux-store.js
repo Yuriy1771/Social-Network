@@ -4,6 +4,7 @@ import newsReducer from "./news-reducer";
 import sidebarReducer from "./sidebar-reducer";
 import profileReducer from "./profile-reducer";
 import musicReducer from "./music-reducer";
+import findUsersReducer from "./findUsers-reducer";
 
 let reducers = combineReducers({
     profilePage : profileReducer,
@@ -11,6 +12,7 @@ let reducers = combineReducers({
     newsPage : newsReducer,
     sidebarFriends: sidebarReducer,
     musicPage: musicReducer,
+    findUsersPage: findUsersReducer,
 
 });
 

@@ -88,13 +88,13 @@ const newsReducer = (state = initialState, action) => {
 
 export const NewsActionCreator = () => {
     return {
-      type: "ADD-NEWS-POST",
+      type: ADD_NEWS_POST,
     };
   };
   
   export const updateNewsPostTextActionCreator = (text, img) => {
     return {
-      type: "UPDATE-NEWS-POST-TEXT",
+      type: UPDATE_NEWS_POST_TEXT,
       newText: text,
       imgNews: img,
     };
