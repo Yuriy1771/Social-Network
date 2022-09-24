@@ -20,6 +20,7 @@
     grid-area: content;
     background-color: rgba(238, 238, 238, 0.637);
     box-shadow: 0 0 5px rgb(146, 146, 146);
+    padding: 10px;
 }
 
 .container-app-wrapper-content {

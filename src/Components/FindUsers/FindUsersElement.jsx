@@ -15,26 +15,24 @@ let onBtnUnfollow = (props) => {
 const FindUsersElement = (props) => {
     return (
         <div className={classes.usersZone}>
-        <span>
-            <div className={classes.usersBlock}>
-                <img src={props.avatar} className={classes.avatar} alt='avatar'/>
+            <div className={classes.usersItem}>
+                <div className={classes.usersAvatar}>
+                    <img src={props.avatar} className={classes.avatar} alt='avatar'/>
+                </div>
+                <div>
+                    {props.followed ? <button onClick={onBtnUnfollow} className={classes.unfollow}>Unfollow</button> :
+                        <button onClick={onBtnFollow} className={classes.follow}>Follow</button>}
+                    {/*    тут баг*/}
+                </div>
             </div>
-            <div>
-                {props.followed ? <button onClick={onBtnFollow}>Follow</button> :
-                    <button onClick={onBtnUnfollow}>Unfollow</button>}
-            {/*    тут баг*/}
+            <div className={classes.descriptionBlockOne}>
+                <div className={classes.fullName}>{props.fullName}</div>
+                <div className={classes.status}>{props.status}</div>
             </div>
-        </span>
-            <span>
-            <span>
-                <div>{props.fullName}</div>
-                <div>{props.status}</div>
-            </span>
-            <span>
-                <div>{props.location.country}</div>
-                <div>{props.location.city}</div>
-            </span>
-        </span>
+            <div className={classes.descriptionBlockTwo}>
+                <div className={classes.country}>{props.location.country}</div>
+                <div className={classes.city}>{props.location.city}</div>
+            </div>
         </div>
     )
 

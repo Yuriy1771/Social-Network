@@ -28,3 +28,17 @@
   /* text-shadow: 1px 1px 3px rgb(3, 3, 3); */
   font-size: 22px;
 }
+
+.itemFindFriends {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  text-shadow: 0.5px 0.5px 2px rgb(0, 0, 0);
+  display: block;
+  margin: 30px 0 0 0;
+}
+
+.itemFindFriends:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(236, 235, 235);
+}
