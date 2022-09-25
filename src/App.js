@@ -52,9 +52,7 @@ const App = (props) => {
                                 <Route
                                     path="/music"
                                     element={
-                                        <Music
-
-                                        />
+                                        <Music store={props.store}/>
                                     }
                                 />;
                                 <Route path="/findUsers" element={<FindUsersContainer/>}/>;

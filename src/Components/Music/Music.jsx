@@ -3,7 +3,7 @@ import Musics from './Musics';
 
 const Music = (props) => {
 
-        let newPlaylist = props.state.musicPage.map(p => (
+        let newPlaylist = props.store.getState().musicPage.playlist.map(p => (
             <Musics
             avtor={p.avtor}
             trek={p.trek}
