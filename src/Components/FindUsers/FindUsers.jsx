@@ -1,18 +1,13 @@
 import React from 'react';
-import classes from './FindUsers.module.css';
-import FindUsersElement from "./FindUsersElement";
+import classes from "./FindUsers.module.css";
 import * as axios from "axios";
+import userPhoto from "../../assets/images/avatar-default.png";
 
 
 const FindUsers = (props) => {
-
-    let getUsers = () => {
-
         if (props.users.length === 0) {
-
             axios.get('https://social-network.samuraijs.com/api/1.0/users')
                 .then(responce => {
-                        debugger
                         props.setUsers(responce.data.items)
                     }
                 )
@@ -69,24 +64,45 @@ const FindUsers = (props) => {
             //     ]
             // )
         }
-    }
-    let findUsersItem = props.users.map((u) => (
-        <FindUsersElement key={u.id}
-                          photos={u.photos}
-                          fullName={u.name}
-                          status={u.status}
-                          // location={u.location}
-                          followed={u.followed}
-                          id={u.id}
-        />
-    ))
 
-    return (
-        <div>
-            <button onClick={getUsers}>Get users</button>
-            {findUsersItem}
+    return  <div>
+        {
+            props.users.map(u => <div key={u.id}>
+
+                    <div className={classes.usersZone}>
+                        <div className={classes.usersItem}>
+                            <div className={classes.usersAvatar}>
+                                <img src={u.photos.small != null ? u.photos.small : userPhoto}
+                                     className={classes.avatar}
+                                     alt='avatar'/>
+                            </div>
+                            <div>
+                                {u.followed ?
+                                    <button onClick={ () => {props.unfollow(u.id)}} className={classes.unfollow}>Unfollow</button> :
+                                    <button onClick={ () => {props.follow(u.id)}} className={classes.follow}>Follow</button>}
+                            </div>
+                        </div>
+                        <div className={classes.descriptionBlockOne}>
+                            <div className={classes.fullName}>{u.name}</div>
+                            <div className={classes.status}>{u.status}</div>
+                        </div>
+                        <div className={classes.descriptionBlockTwo}>
+                            <div className={classes.country}>{'props.location.country'}</div>
+                            <div className={classes.city}>{'props.location.city'}</div>
+                        </div>
+                    </div>
+            </div>
+            )}
         </div>
-    )
-}
 
-export default FindUsers;
+
+}
+        export default FindUsers;
+
+        // }
+            //   <div>
+            //     <button onClick={getUsers}>Get users</button>
+            //     {findUsersItem}
+            // </div>
+
+
