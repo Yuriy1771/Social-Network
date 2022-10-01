@@ -72,3 +72,18 @@
 
 .descriptionBlockTwo .city {
 }
+
+.selectedPage {
+    font-weight: bold;
+    color: rgb(72, 72, 72);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.selectedPage:hover {
+}
+span {
+    color: white;
+    text-shadow: 0.5px 0.5px 2px rgb(0, 0, 0);
+    cursor: pointer;
+}

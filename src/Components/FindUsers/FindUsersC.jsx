@@ -6,13 +6,22 @@ import userPhoto from "../../assets/images/avatar-default.png";
 class FindUsersC extends React.Component {
 
     componentDidMount() {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users')
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+            .then(responce => {
+                this.props.setUsers(responce.data.items)
+                this.props.setTotalUsersCount(responce.data.totalCount)
+                }
+            )
+    }
+
+    onPageChanged = (pageNumber) => {
+        this.props.setCurrentPage(pageNumber);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
             .then(responce => {
                     this.props.setUsers(responce.data.items)
                 }
             )
     }
-
 
 // props.setUsers([
 //         {
@@ -66,7 +75,25 @@ class FindUsersC extends React.Component {
 //     ]
 // )
     render() {
-        return  <div>
+
+        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+        let pages = [];
+        for (let i = 1; i <= pagesCount; i++) {
+            pages.push(i);
+        }
+        let curP = this.props.currentPage;
+        let curPF = ((curP - 10) < 0) ?  0  : curP - 5 ;
+        let curPL = curP + 10;
+        let slicedPages = pages.slice( curPF, curPL);
+
+        return <div>
+            <div>
+                {slicedPages.map(p => {
+                    return <span className={this.props.currentPage === p && classes.selectedPage}
+                                 onClick={ (e) => { this.onPageChanged(p) }}>
+                        {" " + p}</span>})}
+
+            </div>
             {
                 this.props.users.map(u => <div key={u.id}>
 
@@ -79,8 +106,12 @@ class FindUsersC extends React.Component {
                                 </div>
                                 <div>
                                     {u.followed ?
-                                        <button onClick={ () => {this.props.unfollow(u.id)}} className={classes.unfollow}>Unfollow</button> :
-                                        <button onClick={ () => {this.props.follow(u.id)}} className={classes.follow}>Follow</button>}
+                                        <button onClick={() => {
+                                            this.props.unfollow(u.id)
+                                        }} className={classes.unfollow}>Unfollow</button> :
+                                        <button onClick={() => {
+                                            this.props.follow(u.id)
+                                        }} className={classes.follow}>Follow</button>}
                                 </div>
                             </div>
                             <div className={classes.descriptionBlockOne}>

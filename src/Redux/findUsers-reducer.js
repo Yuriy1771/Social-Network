@@ -1,36 +1,16 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
 
 let initialState = {
 
-    users: [
-        // {
-        //     id: 1,
-        //     followed: true,
-        //     fullName: 'Lily Folrance',
-        //     location: {country: 'Canada', city: 'Monreal'},
-        //     status: 'I love cute cats)🥰',
-        //     avatar: 'https://img.freepik.com/free-photo/hair-style-street-fashion-beautiful-girl_1139-844.jpg?w=740&t=st=1663922249~exp=1663922849~hmac=bca10ff83d897562a5747003c10d6305ca16a917b73801179e9b27649bb133e6',
-        // },
-        // {
-        //     id: 2,
-        //     followed: true,
-        //     fullName: 'Stanislav Rostigaev',
-        //     location: {country: 'Russia', city: 'Rostov'},
-        //     status: 'I dream to be famous singer🧑‍🎤',
-        //     avatar: 'https://img.freepik.com/free-photo/waist-up-portrait-of-handsome-serious-unshaven-male-keeps-hands-together-dressed-in-dark-blue-shirt-has-talk-with-interlocutor-stands-against-white-wall-self-confident-man-freelancer_273609-16320.jpg?w=740&t=st=1663922485~exp=1663923085~hmac=2893c3c03663590fdd26f9a959d3e22bcb765476d94cc423ea750f126a4d76cd'
-        // },
-        // {
-        //     id: 3,
-        //     followed: false,
-        //     fullName: 'Kate Vinston',
-        //     location: {country: 'Latvia', city: 'Riga'},
-        //     status: 'I want to eat a big sendwitch 😜',
-        //     avatar: 'https://img.freepik.com/free-photo/pretty-smiling-joyfully-female-with-fair-hair-dressed-casually-looking-with-satisfaction_176420-15187.jpg?w=740&t=st=1663922672~exp=1663923272~hmac=167c5699c86772785c8e7bb3c6ed500e024e4992a6565870bb65a3f6f0627019'
-        // },
+    users: [],
+    pageSize: 5,
+    totalUsersCount: 0,
+    currentPage: 1,
 
-    ]
 }
 
 const findUsersReducer = (state = initialState, action) => {
@@ -58,7 +38,19 @@ const findUsersReducer = (state = initialState, action) => {
         case SET_USERS: {
             return {
                 ...state,
-                users: [...state.users, ...action.users ],
+                users: [...action.users],
+            }
+        }
+        case SET_CURRENT_PAGE: {
+            return {
+                ...state,
+                currentPage: action.currentPage,
+            }
+        }
+        case SET_TOTAL_COUNT: {
+            return {
+                ...state,
+                totalUsersCount: action.count,
             }
         }
         default:
@@ -68,7 +60,8 @@ const findUsersReducer = (state = initialState, action) => {
 
 export const followAC = (userId) => ({type: FOLLOW, userId});
 export const unfollowAC = (userId) => ({type: UNFOLLOW, userId});
-export const setUsersAC = (users) => ({type: SET_USERS, users})
-
+export const setUsersAC = (users) => ({type: SET_USERS, users});
+export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
+export const setTotalUsersCountAC = (totalCount) => ({type: SET_TOTAL_COUNT, count : totalCount});
 
 export default findUsersReducer;
