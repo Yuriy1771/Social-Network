@@ -1,6 +1,7 @@
 import React from "react";
 import classes from './FindUsers.module.css';
 import userPhoto from '../../assets/images/avatar-default.png';
+import {NavLink} from "react-router-dom";
 
 let FindUsers = (props) => {
 
@@ -19,8 +20,11 @@ let FindUsers = (props) => {
             <div>
                 {slicedPages.map(p => {
                     return <span className={props.currentPage === p && classes.selectedPage}
-                                 onClick={ (e) => { props.onPageChanged(p) }}>
-                        {" " + p}</span>})}
+                                 onClick={(e) => {
+                                     props.onPageChanged(p)
+                                 }}>
+                        {" " + p}</span>
+                })}
 
             </div>
             {
@@ -29,9 +33,11 @@ let FindUsers = (props) => {
                         <div className={classes.usersZone}>
                             <div className={classes.usersItem}>
                                 <div className={classes.usersAvatar}>
-                                    <img src={u.photos.small != null ? u.photos.small : userPhoto}
-                                         className={classes.avatar}
-                                         alt='avatar'/>
+                                    <NavLink to={'/profile/*' + u.id}>
+                                        <img src={u.photos.small != null ? u.photos.small : userPhoto}
+                                             className={classes.avatar}
+                                             alt='avatar'/>
+                                    </NavLink>
                                 </div>
                                 <div>
                                     {u.followed ?
@@ -57,7 +63,6 @@ let FindUsers = (props) => {
         </div>
     )
 }
-
 
 
 // let onBtnFollow = (props) => {

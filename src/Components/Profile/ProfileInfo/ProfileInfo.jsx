@@ -1,7 +1,12 @@
 import React from "react";
 import classes from "./ProfileInfo.module.css";
+import Preloader from "../../common/Preloader/Preloader";
 
 const ProfileInfo = (props) => {
+    if (!props.profile) {
+        return <Preloader/>
+    }
+    debugger
   return (
     <div className={classes.content}>
       <div className={classes.logo}>
@@ -13,9 +18,9 @@ const ProfileInfo = (props) => {
       <div className={classes.descriptionBlock}>
         <div className={classes.avatar}>
         <img
-          src="https://sun9-22.userapi.com/impg/wC75CeN7D_79iEeBUjFSsDsjJs02M5e6cqrbbA/p7IihIhOYlw.jpg?size=2560x1707&quality=96&sign=be071c82cadba6f14194bf91afcfd4e9&type=album"
+          src={props.profile.photos.large}
           alt="avatarProfile"
-        />
+       />
         </div>
         <div className={classes.description}>
         <p className={classes.lastName}>Yuriy Dementev</p>
