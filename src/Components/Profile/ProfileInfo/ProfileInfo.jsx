@@ -6,8 +6,19 @@ const ProfileInfo = (props) => {
     if (!props.profile) {
         return <Preloader/>
     }
-    debugger
-  return (
+    // let userPhoto = props.profile.photos.large;
+    //
+    // if (!userPhoto) {
+    //     return <div className={classes.avatar}>
+    //         <img
+    //             src='https://sun9-22.userapi.com/impg/wC75CeN7D_79iEeBUjFSsDsjJs02M5e6cqrbbA/p7IihIhOYlw.jpg?size=2560x1707&quality=96&sign=be071c82cadba6f14194bf91afcfd4e9&type=album'
+    //             alt="avatarProfile"
+    //         />
+    //     </div>
+    //
+    // }
+
+    return (
     <div className={classes.content}>
       <div className={classes.logo}>
         <img
@@ -23,8 +34,8 @@ const ProfileInfo = (props) => {
        />
         </div>
         <div className={classes.description}>
-        <p className={classes.lastName}>Yuriy Dementev</p>
-        <span className={classes.status}>Hi! I am a web programmer)</span>
+        <p className={classes.lastName}>{props.profile.fullName}</p>
+        <span className={classes.status}>{props.profile.aboutMe}</span>
         </div>
       </div>
     </div>

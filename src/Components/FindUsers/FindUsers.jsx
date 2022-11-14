@@ -33,7 +33,7 @@ let FindUsers = (props) => {
                         <div className={classes.usersZone}>
                             <div className={classes.usersItem}>
                                 <div className={classes.usersAvatar}>
-                                    <NavLink to={'/profile/*' + u.id}>
+                                    <NavLink to={'/profile/' + u.id}>
                                         <img src={u.photos.small != null ? u.photos.small : userPhoto}
                                              className={classes.avatar}
                                              alt='avatar'/>
@@ -42,11 +42,11 @@ let FindUsers = (props) => {
                                 <div>
                                     {u.followed ?
                                         <button onClick={() => {
-                                            props.unfollow(u.id)
-                                        }} className={classes.unfollow}>Unfollow</button> :
-                                        <button onClick={() => {
                                             props.follow(u.id)
-                                        }} className={classes.follow}>Follow</button>}
+                                        }} className={classes.unfollow}>Follow</button> :
+                                        <button onClick={() => {
+                                            props.unfollow(u.id)
+                                        }} className={classes.follow}>Unfollow</button>}
                                 </div>
                             </div>
                             <div className={classes.descriptionBlockOne}>
