@@ -8,7 +8,6 @@ import {useParams} from "react-router-dom";
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
-        debugger
         let userId = this.props.params.userId;
 
         if (!userId) { userId = 26083; }

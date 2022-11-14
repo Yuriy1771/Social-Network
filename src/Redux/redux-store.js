@@ -5,6 +5,7 @@ import sidebarReducer from "./sidebar-reducer";
 import profileReducer from "./profile-reducer";
 import musicReducer from "./music-reducer";
 import findUsersReducer from "./findUsers-reducer";
+import authReducer from "./auth-reducer";
 
 let reducers = combineReducers({
     profilePage : profileReducer,
@@ -13,7 +14,7 @@ let reducers = combineReducers({
     sidebarFriends: sidebarReducer,
     musicPage: musicReducer,
     findUsersPage: findUsersReducer,
-
+    auth: authReducer,
 });
 
 let store = createStore(reducers);
