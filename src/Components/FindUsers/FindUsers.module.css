@@ -73,21 +73,49 @@
 .descriptionBlockTwo .city {
 }
 
+/*span {*/
+/*    color: white;*/
+/*    text-shadow: 0.5px 0.5px 2px rgb(0, 0, 0);*/
+/*    cursor: pointer;*/
+/*}*/
+
+
+
+.containerSelect {
+    overflow: hidden;
+    display: inline-block;
+    box-shadow: 0 0 6px rgb(146, 146, 146);
+    margin: 0px 5px 5px 5px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.containerSelects {
+    margin: -3px 0 5px 0;
+    text-align: center;
+}
+
 .selectedPage {
+    width: 25px;
+    height: 25px;
     font-weight: bold;
     color: rgb(72, 72, 72);
     text-decoration: none;
-    font-size: 20px;
+    background: rgb(72, 72, 72);
+    color: white;
 }
 
 .selectedPage:hover {
 }
-span {
-    color: white;
-    text-shadow: 0.5px 0.5px 2px rgb(0, 0, 0);
-    cursor: pointer;
+
+.preloader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.loader img {
-    width: 100px;
+.preloader img {
+    width: 200px;
 }

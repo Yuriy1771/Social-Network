@@ -4,7 +4,6 @@ import userPhoto from '../../assets/images/avatar-default.png';
 import {NavLink} from "react-router-dom";
 import * as axios from "axios";
 
-
 let FindUsers = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = [];
@@ -19,13 +18,16 @@ let FindUsers = (props) => {
 
     return (
         <div>
-            <div>
+            <div className={classes.containerSelects}>
                 {slicedPages.map(p => {
-                    return <span className={props.currentPage === p && classes.selectedPage}
-                                 onClick={(e) => {
-                                     props.onPageChanged(p)
-                                 }}>
-                        {" " + p}</span>
+                    return <div className={classes.containerSelect}>
+                        <div className={props.currentPage === p && classes.selectedPage}
+                             onClick={(e) => {
+                                 props.onPageChanged(p)
+                             }}>
+                            {" " + p}
+                        </div>
+                    </div>
                 })}
 
             </div>
@@ -44,7 +46,7 @@ let FindUsers = (props) => {
                                 <div>
                                     {u.followed
                                         ?
-                                         <button onClick={() => {
+                                        <button onClick={() => {
 
                                             axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
                                                 {
@@ -59,20 +61,23 @@ let FindUsers = (props) => {
 
 
                                         }} className={classes.follow}>Unfollow</button>
-                                    :<button onClick={() => {
+                                        : <button onClick={() => {
 
-                                        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {},
-                                            {withCredentials: true, headers: {'API-KEY': '0b29589f-8109-4348-9a6d-bb3bdfa01b66'}},
-                                        )
-                                            .then(response => {
-                                                    if (response.data.resultCode === 0) {
-                                                        props.follow(u.id)
-                                                    }
-                                                }
+                                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {},
+                                                {
+                                                    withCredentials: true,
+                                                    headers: {'API-KEY': '0b29589f-8109-4348-9a6d-bb3bdfa01b66'}
+                                                },
                                             )
+                                                .then(response => {
+                                                        if (response.data.resultCode === 0) {
+                                                            props.follow(u.id)
+                                                        }
+                                                    }
+                                                )
 
 
-                                    }} className={classes.unfollow}>Follow</button>}
+                                        }} className={classes.unfollow}>Follow</button>}
                                 </div>
                             </div>
                             <div className={classes.descriptionBlockOne}>
@@ -89,42 +94,5 @@ let FindUsers = (props) => {
         </div>
     )
 }
-
-
-// let onBtnFollow = (props) => {
-//     props.follow1(props.id)
-// }
-//
-// let onBtnUnfollow = (props) => {
-//     props.unfollow(props.id)
-//
-// }
-//
-//
-// const FindUsers = (props) => {
-//     return (
-//         <div className={classes.usersZone}>
-//             <div className={classes.usersItem}>
-//                 <div className={classes.usersAvatar}>
-//                     <img src={props.photos.small != null ? props.photos.small : userPhoto} className={classes.avatar} alt='avatar'/>
-//                 </div>
-//                 <div>
-//                     {props.followed ? <button onClick={onBtnUnfollow} className={classes.unfollow}>Unfollow</button> :
-//                         <button onClick={onBtnFollow} className={classes.follow}>Follow</button>}
-//                     {/*    тут баг*/}
-//                 </div>
-//             </div>
-//             <div className={classes.descriptionBlockOne}>
-//                 <div className={classes.fullName}>{props.fullName}</div>
-//                 <div className={classes.status}>{props.status}</div>
-//             </div>
-//             <div className={classes.descriptionBlockTwo}>
-//                 <div className={classes.country}>{'props.location.country'}</div>
-//                 <div className={classes.city}>{'props.location.city'}</div>
-//             </div>
-//         </div>
-//     )
-//
-// }
 
 export default FindUsers;
