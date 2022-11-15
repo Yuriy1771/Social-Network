@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from "../../FindUsers/FindUsers.module.css";
-import preloader from "../../../assets/images/loader.gif";
+import preloader from "../../../assets/images/Loader.svg";
 
 const Preloader = (props) => {
     return (
