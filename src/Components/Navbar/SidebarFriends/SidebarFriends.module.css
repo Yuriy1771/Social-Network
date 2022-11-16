@@ -1,15 +1,39 @@
-/* .sidebarFriends {
+.sidebarFriendsContainer {
+    display: grid;
+    grid-template-areas: 'l c r';
+    grid-template-rows: 60px;
+    grid-template-columns: 1fr 1fr 1fr;
+    box-shadow: 0 5px 5px -5px rgb(146, 146, 146);
+}
+
+.sidebarBlockLeft {
+    grid-area: l;
+    width: 50px;
+}
+
+.sidebarBlockCenter {
+    grid-area: c;
+    width: 50px;
+
+}
+
+.sidebarBlockRight {
+    grid-area: r;
+    width: 50px;
+
+}
+
+.sidebarAvatar {
     display: flex;
-}
-
-.friend {
-    border: 1px solid black;
-    padding : 5px;
-    text-align: center;
-
-}
-
-.friend img {
-    width : 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-} */
+    box-shadow: 0 0 5px 1px rgb(146, 146, 146);
+    margin: 0 auto;
+}
+
+.sidebarName {
+    position: relative;
+    bottom: 20px;
+    text-align: center;
+}

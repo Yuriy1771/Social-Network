@@ -2,7 +2,6 @@ import React from "react";
 import classes from './FindUsers.module.css';
 import userPhoto from '../../assets/images/avatar-default.png';
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
 import {followAPI, unfollowAPI} from "../../api/api";
 
 let FindUsers = (props) => {

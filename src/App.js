@@ -21,13 +21,12 @@ const App = (props) => {
                     <div className="container-app-wrapper-content">
                         <div className="app-wrapper-content">
                             <Routes>
-                                <Route path='/profile'  element={<ProfileContainer/>} />
-                                <Route path='profile/:userId' element={<ProfileContainer/>} />
+                                <Route path='/profile' element={<ProfileContainer/>}/>
+                                <Route path='profile/:userId' element={<ProfileContainer/>}/>
                                 <Route
                                     path="/dialogs/*"
                                     element={
                                         <DialogsContainer
-                                            // store={props.store}
                                         />
                                     }
                                 />
@@ -36,7 +35,6 @@ const App = (props) => {
                                     path="/news"
                                     element={
                                         <NewsContainer
-                                            // store={props.store}
                                         />
                                     }
                                 />

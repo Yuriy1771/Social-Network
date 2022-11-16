@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink  } from "react-router-dom";
 import classes from './Navbar.module.css';
+import SidebarFriends from "./SidebarFriends/SidebarFriends";
 
 const ActiveLink = ({isActive}) => isActive ? classes.active : classes.item ;
 
@@ -27,6 +28,9 @@ const Navbar = (props) => {
     </div>
       <div className={classes.itemFindFriends}>
         <NavLink to='/findUsers' className={ActiveLink}>Find Friends</NavLink>
+      </div>
+      <div className={classes.sidebar}>
+        <SidebarFriends/>
       </div>
     </nav>
     </div>
