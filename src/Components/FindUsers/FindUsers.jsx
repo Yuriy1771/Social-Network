@@ -47,22 +47,31 @@ let FindUsers = (props) => {
                                 <div>
                                     {u.followed
                                         ?
-                                        <button onClick={() => {
+                                        <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+
+                                            props.toggleFollowingProgress(true, u.id)
 
                                             unfollowAPI.unfollow(u).then(data => {
-                                                if (data.resultCode === 0) {
-                                                    props.unfollow(u.id)
+                                                    if (data.resultCode === 0) {
+                                                        props.unfollow(u.id)
+                                                    }
+                                                    props.toggleFollowingProgress(false, u.id)
                                                 }
-                                            })
+                                            )
+
                                         }} className={classes.follow}>Unfollow</button>
-                                        : <button onClick={() => {
+                                        : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+
+                                            props.toggleFollowingProgress(true, u.id)
 
                                             followAPI.follow(u).then(data => {
                                                     if (data.resultCode === 0) {
                                                         props.follow(u.id)
                                                     }
+                                                    props.toggleFollowingProgress(false, u.id)
                                                 }
                                             )
+
                                         }} className={classes.unfollow}>Follow</button>}
                                 </div>
                             </div>
