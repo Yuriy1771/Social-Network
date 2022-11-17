@@ -2,7 +2,7 @@ import React from "react";
 import classes from './FindUsers.module.css';
 import userPhoto from '../../assets/images/avatar-default.png';
 import {NavLink} from "react-router-dom";
-import {followAPI, unfollowAPI} from "../../api/api";
+import {usersAPI} from "../../api/api";
 
 let FindUsers = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -48,28 +48,12 @@ let FindUsers = (props) => {
                                         ?
                                         <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
 
-                                            props.toggleFollowingProgress(true, u.id)
-
-                                            unfollowAPI.unfollow(u).then(data => {
-                                                    if (data.resultCode === 0) {
-                                                        props.unfollow(u.id)
-                                                    }
-                                                    props.toggleFollowingProgress(false, u.id)
-                                                }
-                                            )
+                                            props.unfollow(u.id);
 
                                         }} className={classes.follow}>Unfollow</button>
                                         : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
 
-                                            props.toggleFollowingProgress(true, u.id)
-
-                                            followAPI.follow(u).then(data => {
-                                                    if (data.resultCode === 0) {
-                                                        props.follow(u.id)
-                                                    }
-                                                    props.toggleFollowingProgress(false, u.id)
-                                                }
-                                            )
+                                            props.follow(u.id);
 
                                         }} className={classes.unfollow}>Follow</button>}
                                 </div>

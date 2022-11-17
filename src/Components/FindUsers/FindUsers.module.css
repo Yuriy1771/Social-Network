@@ -15,33 +15,33 @@
 
 }
 
-/*.usersItem .follow {*/
-/*    width: 100px;*/
-/*    cursor: pointer;*/
-/*    border: 1px solid rgb(146, 146, 146);*/
-/*}*/
+.usersItem .follow {
+    width: 100px;
+    cursor: pointer;
+    border: 1px solid rgb(146, 146, 146);
+}
 
-/*.usersItem .follow:hover {*/
-/*    background:rgb(72, 72, 72);*/
-/*    color: white;*/
-/*    box-shadow: 0 0 5px rgb(146, 146, 146);*/
-/*    transition: ease all .5s;*/
-/*}*/
+.usersItem .follow:hover {
+    background:rgb(72, 72, 72);
+    color: white;
+    box-shadow: 0 0 5px rgb(146, 146, 146);
+    transition: ease all .5s;
+}
 
-/*.usersItem .unfollow {*/
-/*    width: 100px;*/
-/*    box-shadow: 0 0 5px rgb(146, 146, 146);*/
-/*    background: rgb(72, 72, 72);*/
-/*    color: white;*/
-/*    cursor: pointer;*/
-/*    border: 1px solid rgb(146, 146, 146);*/
-/*}*/
+.usersItem .unfollow {
+    width: 100px;
+    box-shadow: 0 0 5px rgb(146, 146, 146);
+    background: rgb(72, 72, 72);
+    color: white;
+    cursor: pointer;
+    border: 1px solid rgb(146, 146, 146);
+}
 
-/*.usersItem .unfollow:hover {*/
-/*    background: white;*/
-/*    color: rgb(72, 72, 72);*/
-/*    transition: ease all .5s;*/
-/*}*/
+.usersItem .unfollow:hover {
+    background: white;
+    color: rgb(72, 72, 72);
+    transition: ease all .5s;
+}
 
 .usersAvatar .avatar {
     width: 100px;
