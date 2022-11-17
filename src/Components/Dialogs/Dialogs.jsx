@@ -38,10 +38,10 @@ const Dialogs = (props) => {
       <div className={classes.messages}>
         {messagesElements}
         <div>
-          <textarea ref={newMessageElement} onChange={ onMessageChange } value={ newMessageText }></textarea>
+          <textarea className={classes.textareaMessage} ref={newMessageElement} onChange={ onMessageChange } value={ newMessageText }></textarea>
         </div>
         <div>
-          <button onClick={addMessage}>Send</button>
+          <button className={classes.btnSendMessage} onClick={addMessage}>Send</button>
         </div>
       </div>
     </div>

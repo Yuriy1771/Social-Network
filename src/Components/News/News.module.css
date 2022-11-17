@@ -6,25 +6,33 @@
     /* box-shadow: 0 0 5px rgb(146, 146, 146); */
 }
 
-/* .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
 .textarea textarea {
-    width: 300px;
+    width: 400px;
     height: 40px;
+    box-shadow: 0 0 5px rgb(146, 146, 146);
+    border-radius: 5px;
 }
 
 .btnAddNews {
-    padding: 0 0 0 10px;    
+    padding: 0 0 0 10px;
 }
 
 .btnAddNews button {
     width: 100px;
     height: 44px;
     cursor: pointer;
+    transition: ease all 1s;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 0 0 5px 1px rgb(146, 146, 146);
+    margin-bottom: 5px;
+}
+
+.btnAddNews button:hover {
+    background:rgb(72, 72, 72);
+    color: white;
+    box-shadow: 0 0 5px rgb(146, 146, 146);
+    transition: ease all .5s;
 }
 
 .addImg {
@@ -32,5 +40,9 @@
 }
 
 .addImg input {
-    width: 215px;
+    width: 114px;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 0 0 5px 1px rgb(146, 146, 146);
+    margin-bottom: 5px;
 }

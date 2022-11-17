@@ -6,6 +6,7 @@
 
 .header img {
   width: 240px;
+
 }
 
 .loginBlock {
@@ -27,4 +28,5 @@
   height: 40px;
   border-radius: 50%;
   margin-top: 10px;
+  box-shadow: 0 0 5px 1px rgb(146, 146, 146);
 }
