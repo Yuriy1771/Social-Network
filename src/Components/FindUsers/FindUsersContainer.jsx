@@ -29,6 +29,7 @@ class FindUsersContainer extends React.Component {
             <>
                 {this.props.isFetching ? <Preloader/> : null}
                 <FindUsers
+
                     totalUsersCount={this.props.totalUsersCount}
                     pageSize={this.props.pageSize}
                     currentPage={this.props.currentPage}

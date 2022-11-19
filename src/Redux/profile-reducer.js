@@ -6,7 +6,7 @@ let initialState = {
     posts: [
         {
             id: 2,
-            post: "Hi, how are you?",
+            post: "Hi, how are you? ",
             likesCount: 4,
             avatar:
                 "https://sun9-22.userapi.com/impg/wC75CeN7D_79iEeBUjFSsDsjJs02M5e6cqrbbA/p7IihIhOYlw.jpg?size=2560x1707&quality=96&sign=be071c82cadba6f14194bf91afcfd4e9&type=album",
