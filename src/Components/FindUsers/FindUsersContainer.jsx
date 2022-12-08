@@ -11,6 +11,9 @@ import {
 } from "../../Redux/findUsers-reducer";
 import FindUsers from "./FindUsers";
 import Preloader from "../common/Preloader/Preloader";
+import {WithAuthRedirect} from "../Hoc/WithAuthRedirect";
+import Dialogs from "../Dialogs/Dialogs";
+import {compose} from "redux";
 
 class FindUsersContainer extends React.Component {
 
@@ -58,14 +61,16 @@ let mapStateToProps = (state) => {
     }
 }
 
+export default compose(
+    connect(mapStateToProps, {
+        followSuccess,
+        unfollowSuccess,
+        setCurrentPage,
+        toggleFollowingProgress,
+        getUsers,
+        unfollow,
+        follow,
 
-export default connect(mapStateToProps, {
-    followSuccess,
-    unfollowSuccess,
-    setCurrentPage,
-    toggleFollowingProgress,
-    getUsers,
-    unfollow,
-    follow,
-
-})(FindUsersContainer);
+    }),
+    WithAuthRedirect,
+)(FindUsersContainer);
