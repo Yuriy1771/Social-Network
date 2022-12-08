@@ -30,3 +30,10 @@
   margin-top: 10px;
   box-shadow: 0 0 5px 1px rgb(146, 146, 146);
 }
+
+.loginFalse{
+  font-size: 20px;
+  color: rgb(72, 72, 72);
+  position: relative;
+  bottom: 10px;
+}

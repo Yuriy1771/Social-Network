@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./ProfileInfo.module.css";
 import Preloader from "../../common/Preloader/Preloader";
+import {Navigate} from "react-router-dom";
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
@@ -17,7 +18,6 @@ const ProfileInfo = (props) => {
     //     </div>
     //
     // }
-
     return (
     <div className={classes.content}>
       <div className={classes.logo}>

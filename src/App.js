@@ -3,13 +3,13 @@ import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
-import SidebarFriends from "./Components/Navbar/SidebarFriends/SidebarFriends";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import NewsContainer from "./Components/News/NewsContainer";
 import FindUsersContainer from "./Components/FindUsers/FindUsersContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
+import Login from "./Components/Login/Login";
 
 const App = (props) => {
     return (
@@ -23,31 +23,12 @@ const App = (props) => {
                             <Routes>
                                 <Route path='/profile' element={<ProfileContainer/>}/>
                                 <Route path='profile/:userId' element={<ProfileContainer/>}/>
-                                <Route
-                                    path="/dialogs/*"
-                                    element={
-                                        <DialogsContainer
-                                        />
-                                    }
-                                />
-                                ;
-                                <Route
-                                    path="/news"
-                                    element={
-                                        <NewsContainer
-                                        />
-                                    }
-                                />
-                                ;
-                                <Route
-                                    path="/music"
-                                    element={
-                                        <Music store={props.store}/>
-                                    }
-                                />;
+                                <Route path="/dialogs/*" element={<DialogsContainer/>}/>
+                                <Route path="/news" element={<NewsContainer/>}/>
+                                <Route path="/music" element={<Music store={props.store}/>}/>
                                 <Route path="/findUsers" element={<FindUsersContainer/>}/>;
-
                                 <Route path="/settings" element={<Settings/>}/>;
+                                <Route path="/login" element={<Login/>}/>
                             </Routes>
                         </div>
                     </div>

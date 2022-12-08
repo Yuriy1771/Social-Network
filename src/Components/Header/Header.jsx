@@ -9,7 +9,7 @@ const Header = (props) => {
         <img src={logo} alt="picture" />
             <div className={classes.loginBlock}>
                 <img src="https://sun9-22.userapi.com/impg/wC75CeN7D_79iEeBUjFSsDsjJs02M5e6cqrbbA/p7IihIhOYlw.jpg?size=2560x1707&quality=96&sign=be071c82cadba6f14194bf91afcfd4e9&type=album" alt=""/>
-                {props.isAuth ? <div className={classes.login}><p>{props.login}</p></div> : <NavLink to={'/login'}>Login</NavLink>}
+                {props.isAuth ? <div className={classes.login}><p>{props.login}</p></div> : <NavLink to={'/login'} className={classes.loginFalse}>Login</NavLink>}
             </div>
       </header>
     )
