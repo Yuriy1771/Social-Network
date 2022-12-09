@@ -3,6 +3,7 @@ import {usersAPI} from "../api/api";
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const NEW_TEXT_STATUS = 'NEW_TEXT_STATUS';
 
 let initialState = {
     posts: [
@@ -22,6 +23,7 @@ let initialState = {
         },
     ],
     newPostText: "",
+    newTextStatus: 'Add status',
     profile: null,
 }
 
@@ -47,6 +49,12 @@ const profileReducer = (state = initialState, action) => {
                 newPostText: action.newText,
             };
         }
+        case NEW_TEXT_STATUS: {
+            return {
+                ...state,
+                newTextStatus: action.text,
+            }
+        }
         case SET_USER_PROFILE: {
             return {
                 ...state,
@@ -61,8 +69,8 @@ const profileReducer = (state = initialState, action) => {
 //actions
 export const addPostActionCreator = () => ({type: ADD_POST,});
 export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text,});
-export const setUsersProfileAC = (profile) => ({type: SET_USER_PROFILE, profile})
-
+export const setUsersProfileAC = (profile) => ({type: SET_USER_PROFILE, profile});
+export const updateTextStatusAC = (text) => ({type: NEW_TEXT_STATUS, text});
 //thunks
 export const getUserProfile = (userId) => (dispatch) => {
     usersAPI.getProfile(userId).then(data => {
