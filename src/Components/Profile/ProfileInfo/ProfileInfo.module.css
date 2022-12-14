@@ -20,9 +20,10 @@
     box-shadow: 0 0 5px rgb(146, 146, 146);
 }
 
-.status {
+.status p {
     padding: 0px 0px 0px 10px;
     font-style: italic;
+    width: 300px;
 }
 
 .logo img {
