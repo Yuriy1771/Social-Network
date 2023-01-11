@@ -1,0 +1,29 @@
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inputText {
+    width: 200px;
+    height: 25px;
+    margin: 5px 0 0 0;
+}
+
+.inputCheckbox {
+
+}
+
+.inputError {
+    width: 300px;
+    height: 5px;position: relative;
+    bottom: 15px;
+}
+
+.text {
+    color: red;
+}
+
+.loginBtn {
+    width: 100px;
+    height: 30px;
+}
