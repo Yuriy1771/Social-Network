@@ -2,8 +2,7 @@ import React from "react";
 import classes from "../Dialogs/Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Messages/Message";
-import {Navigate} from "react-router-dom";
-
+import {useForm} from "react-hook-form";
 
 const Dialogs = (props) => {
 
@@ -19,18 +18,6 @@ const Dialogs = (props) => {
         <Message message={m.message} key={m.id}/>
     ));
 
-    let newMessageElement = React.createRef();
-
-    let addMessage = () => {
-        props.addMessage();
-    };
-
-    let onMessageChange = (e) => {
-        let message = e.target.value;
-        debugger
-        props.updateNewMessageText(message);
-    }
-
     return (
         <div className={classes.dialogs}>
             <div className={classes.shadow}>
@@ -38,16 +25,39 @@ const Dialogs = (props) => {
             </div>
             <div className={classes.messages}>
                 {messagesElements}
-                <div>
-                    <textarea className={classes.textareaMessage} ref={newMessageElement} onChange={onMessageChange}
-                              value={newMessageText}></textarea>
-                </div>
-                <div>
-                    <button className={classes.btnSendMessage} onClick={addMessage}>Send</button>
-                </div>
+                <AddMessageForm addMessage={props.addMessage}/>
             </div>
         </div>
     );
 };
+
+function AddMessageForm(props) {
+
+    const {
+        register,
+        formState: {
+            errors,
+            isValid,
+        },
+        handleSubmit,
+        reset,
+    } = useForm()
+
+    function onSubmit(data) {
+        props.addMessage(data)
+        reset();
+    }
+
+    return (
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <div>
+                <textarea className={classes.textareaMessage} {...register('message', {required: 'error'})}></textarea>
+            </div>
+            <div>
+                <button className={classes.btnSendMessage} disabled={!isValid}>Send</button>
+            </div>
+        </form>
+    )
+}
 
 export default Dialogs;

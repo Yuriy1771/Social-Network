@@ -16,6 +16,7 @@ let reducers = combineReducers({
     musicPage: musicReducer,
     findUsersPage: findUsersReducer,
     auth: authReducer,
+
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

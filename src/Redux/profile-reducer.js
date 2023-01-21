@@ -1,7 +1,6 @@
 import {profileAPI, usersAPI} from "../api/api";
 
 const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 
@@ -22,7 +21,6 @@ let initialState = {
                 "https://sun9-22.userapi.com/impg/wC75CeN7D_79iEeBUjFSsDsjJs02M5e6cqrbbA/p7IihIhOYlw.jpg?size=2560x1707&quality=96&sign=be071c82cadba6f14194bf91afcfd4e9&type=album",
         },
     ],
-    newPostText: "",
     profile: null,
     status: '',
 }
@@ -32,20 +30,14 @@ const profileReducer = (state = initialState, action) => {
         case ADD_POST:
             let newPost = {
                 id: 1,
-                post: state.newPostText,
+                post: action.post,
                 likesCount: 0,
                 avatar:
                     "https://sun9-22.userapi.com/impg/wC75CeN7D_79iEeBUjFSsDsjJs02M5e6cqrbbA/p7IihIhOYlw.jpg?size=2560x1707&quality=96&sign=be071c82cadba6f14194bf91afcfd4e9&type=album",
             };
             return {
                 ...state,
-                newPostText: '',
                 posts: [newPost, ...state.posts]
-            };
-        case UPDATE_NEW_POST_TEXT:
-            return {
-                ...state,
-                newPostText: action.text,
             };
         case SET_STATUS:
             return {
@@ -64,10 +56,10 @@ const profileReducer = (state = initialState, action) => {
 };
 
 //actions
-export const addPostActionCreator = () => ({type: ADD_POST});
-export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, text});
+export const addPostAC = (post) => ({type: ADD_POST, post});
 export const setUsersProfileAC = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setStatus = (status) => ({type: SET_STATUS, status});
+
 //thunks
 export const getUserProfile = (userId) => (dispatch) => {
     usersAPI.getProfile(userId).then(data => {
