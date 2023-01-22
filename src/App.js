@@ -10,6 +10,7 @@ import FindUsersContainer from "./Components/FindUsers/FindUsersContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
 import Login from "./Components/Login/Login";
+import LoginContainer from "./Components/Login/LoginContainer";
 
 const App = (props) => {
     return (
@@ -28,7 +29,7 @@ const App = (props) => {
                                 <Route path="/music" element={<Music store={props.store}/>}/>
                                 <Route path="/findUsers" element={<FindUsersContainer/>}/>;
                                 <Route path="/settings" element={<Settings/>}/>;
-                                <Route path="/login" element={<Login/>}/>
+                                <Route path="/login" element={<LoginContainer/>}/>
                             </Routes>
                         </div>
                     </div>

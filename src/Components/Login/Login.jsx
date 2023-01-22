@@ -1,6 +1,8 @@
 import React from 'react';
 import {useForm} from 'react-hook-form';
 import classes from './Login.module.css'
+import {loginThunk} from "../../Redux/auth-reducer";
+
 function LoginForm(props) {
 
     const {
@@ -16,7 +18,7 @@ function LoginForm(props) {
     });
 
     const onSubmit = (data) => {
-        alert(JSON.stringify(data))
+        props.loginThunk(data.email, data.password, data.rememberMe)
         reset()
     }
     return (
@@ -24,17 +26,17 @@ function LoginForm(props) {
             <h1>Login</h1>
 
             <label>
-                <input className={classes.inputText} type='text' placeholder={'login'} {...register('login', {
+                <input className={classes.inputText} type='text' placeholder={'email'} {...register('email', {
                     required: 'This field is required !',
 
                 })}/>
             </label>
             <div className={classes.inputError}>
-                <p >{errors?.login && <p className={classes.text}>{errors?.login?.message || 'Error'}</p>}</p>
+                <p >{errors?.email && <p className={classes.text}>{errors?.email?.message || 'Error'}</p>}</p>
             </div>
             <div>
                 <label>
-                    <input className={classes.inputText} type='text' placeholder={'password'} {...register('password', {
+                    <input className={classes.inputText} type='password' placeholder={'password'} {...register('password', {
                         required: 'This field is required !',
                     })}/>
                 </label>
@@ -55,7 +57,7 @@ function LoginForm(props) {
 function Login(props) {
     return (
         <div className={classes.loginContainer}>
-            <LoginForm/>
+            <LoginForm loginThunk={props.loginThunk}/>
         </div>
     )
 }
