@@ -4,7 +4,7 @@ import {loginThunk} from "../../Redux/auth-reducer";
 
 let mapStateToProps = (state) => {
     return {
-
+        isAuth: state.auth.isAuth,
     }
 }
 

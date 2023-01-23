@@ -1,15 +1,20 @@
 import React from 'react';
 import classes from './Header.module.css';
 import logo from './imgProject/LogoSocialNetwork.png';
-import {NavLink} from "react-router-dom";
+import {Navigate, NavLink} from "react-router-dom";
 
 const Header = (props) => {
+
+    function logout() {
+        props.logoutThunk();
+    }
+
     return (
         <header className={classes.header}>
-        <img src={logo} alt="picture" />
+        <img src={logo} alt="picture" className={classes.logo} />
+            {/*<span className={classes.logout} onClick={logout}><p>Logout</p></span>*/}
             <div className={classes.loginBlock}>
-                <img src="https://sun9-22.userapi.com/impg/wC75CeN7D_79iEeBUjFSsDsjJs02M5e6cqrbbA/p7IihIhOYlw.jpg?size=2560x1707&quality=96&sign=be071c82cadba6f14194bf91afcfd4e9&type=album" alt=""/>
-                {props.isAuth ? <div className={classes.login}><p>{props.login}</p></div> : <NavLink to={'/login'} className={classes.loginFalse}>Login</NavLink>}
+                {props.isAuth ?  <NavLink to={'/login'} className={classes.logDeor} onClick={logout}>Log out</NavLink>: <NavLink to={'/login'} className={classes.logDeor}>Login</NavLink>}
             </div>
       </header>
     )

@@ -1,7 +1,7 @@
 import React from 'react';
 import {useForm} from 'react-hook-form';
 import classes from './Login.module.css'
-import {loginThunk} from "../../Redux/auth-reducer";
+import {Navigate} from "react-router-dom";
 
 function LoginForm(props) {
 
@@ -21,6 +21,8 @@ function LoginForm(props) {
         props.loginThunk(data.email, data.password, data.rememberMe)
         reset()
     }
+
+
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <h1>Login</h1>
@@ -55,9 +57,11 @@ function LoginForm(props) {
 }
 
 function Login(props) {
+    if(props.isAuth === true) return <Navigate to={'/profile'}/>
+
     return (
         <div className={classes.loginContainer}>
-            <LoginForm loginThunk={props.loginThunk}/>
+            <LoginForm isAuth={props.isAuth} loginThunk={props.loginThunk}/>
         </div>
     )
 }
