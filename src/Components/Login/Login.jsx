@@ -7,6 +7,7 @@ function LoginForm(props) {
 
     const {
         register,
+        setError,
         formState: {
             errors,
             isValid,
@@ -18,7 +19,7 @@ function LoginForm(props) {
     });
 
     const onSubmit = (data) => {
-        props.loginThunk(data.email, data.password, data.rememberMe)
+        props.loginThunk(data.email, data.password, data.rememberMe, setError)
         reset()
     }
 
@@ -50,6 +51,7 @@ function LoginForm(props) {
                 <input className={classes.inputCheckbox} type='checkbox'/> remember me
             </div>
             <div>
+                {errors.server && <p className={classes.text}>{errors.server.message}</p>}
                 <button className={classes.loginBtn} disabled={!isValid}>Login</button>
             </div>
         </form>

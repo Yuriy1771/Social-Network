@@ -87,11 +87,7 @@ export const setUsers = (users) => ({type: SET_USERS, users});
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
 export const setTotalUsersCount = (totalCount) => ({type: SET_TOTAL_COUNT, count: totalCount});
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
-export const toggleFollowingProgress = (isFetching, userId) => ({
-    type: TOGGLE_IS_FOLLOWING_PROGRESS,
-    isFetching,
-    userId
-});
+export const toggleFollowingProgress = (isFetching, userId) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS,isFetching,userId});
 
 
 //Thunks
@@ -108,8 +104,7 @@ export const getUsers = (currentPage, pageSize) => {
     }
 }
 
-export const unfollow = (userId) => {
-    return (dispatch) => {
+export const unfollow = (userId) => (dispatch) => {
         dispatch(toggleFollowingProgress(true, userId));
 
         usersAPI.unfollow(userId).then(data => {
@@ -119,11 +114,9 @@ export const unfollow = (userId) => {
                 dispatch(toggleFollowingProgress(false, userId));
             }
         )
-    }
 }
 
-export const follow = (userId) => {
-    return (dispatch) => {
+export const follow = (userId) =>  (dispatch) => {
         dispatch(toggleFollowingProgress(true, userId));
 
         usersAPI.follow(userId).then(data => {
@@ -135,6 +128,6 @@ export const follow = (userId) => {
         )
 
     }
-}
+
 
 export default findUsersReducer;

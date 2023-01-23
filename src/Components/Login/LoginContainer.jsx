@@ -10,7 +10,7 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        loginThunk: (email,password,rememberMe) => {dispatch(loginThunk(email,password,rememberMe))}
+        loginThunk: (email,password,rememberMe,setError) => {dispatch(loginThunk(email,password,rememberMe,setError))}
     }
 }
 let LoginContainer = connect(mapStateToProps, mapDispatchToProps)(Login);
